@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
+import Button from "./Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,9 +18,12 @@ function App() {
       console.warn("Count value can't be less than 0");
     }
   }
+  function reset() {
+    setCount(0);
+  }
 
   return (
-    <>
+    <fragment>
       <h1>Count: {count}</h1>
       <div
         style={{
@@ -27,7 +31,7 @@ function App() {
           gap: "10px",
         }}
       >
-        <button onClick={increment}>➕ INCREMENT</button>
+        {/* <button onClick={increment}>➕ INCREMENT</button>
         <button onClick={decrement}>➖ DECREMENT</button>
         <button
           onClick={() => {
@@ -35,9 +39,13 @@ function App() {
           }}
         >
           🔄️ RESET
-        </button>
+        </button> */}
+
+        <Button name="INCREMENT" symb="➕" func={increment} />
+        <Button name="DECREMENT" symb="➖" func={decrement} />
+        <Button name="RESET" symb="🔄️" func={reset} />
       </div>
-    </>
+    </fragment>
   );
 }
 
