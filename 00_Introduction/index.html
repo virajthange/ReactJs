@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      const rootElement = document.getElementById("root");
+      const root = ReactDOM.createRoot(rootElement);
+
+    //   We can use any valid javascript expression inside jsx by wrapping it in curly braces. For example, we can use the createElement method to create a heading element and apply some inline styles to it.
+      root.render(
+        <>
+          <h1>Hello</h1>
+          <p>World</p>
+
+           
+          {React.createElement(
+            "h2",
+            {
+              style: {
+                background: "lightblue",
+                padding: "12px",
+                borderRadius: "8px",
+              },
+            },
+            "Welcome to React Basics...!",
+  
+            React.createElement(
+              "span",
+              {
+                style: {
+                  color: "blue",
+                  fontSize: "18px",
+                },
+              },
+              "  Let's learn React together."
+            )
+          )}
+        </>,
+      );
+    </script>
+  </body>
+</html>
+
+<!-- if we want to use jsx inside render method then we need to use babel to convert jsx into js because browser cannot understand jsx directly. So we have included babel script in our html file and set the type of our script to "text/babel". This way babel will transpile our jsx code into regular javascript that the browser can execute. --
